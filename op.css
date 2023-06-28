@@ -17,10 +17,10 @@
 
 /* 背景圖替換 */
 body {
-	background-image: url("teamlogo/BG/BG.png");
+	background-image: url("teamlogo/BG/BG2.png") , url("teamlogo/BG/BG.png") ;
     background-size:1920px 1080px;
     background-color: rgb(255, 255, 255);
-    z-index: 1;
+    z-index: 2;
     overflow: hidden;
     /* 下面是進場動畫 */
     /* animation: backupto1080 1.8s ; */
@@ -28,6 +28,9 @@ body {
     padding: 0;
     
 } 
+
+
+
 
 .BGBP1{
   display:block; position:fixed; 
@@ -71,23 +74,33 @@ body {
   }
 
 
+
 /* 選取英雄用 fade in*/
-  @keyframes fadeIn1 {
-    0% {opacity:0%;}
-    20% {opacity: 20%;}
-    50% {opacity:  50%;}
-    70% {opacity:  70%;}
-    100% {opacity:  1;}
-  }
+@keyframes fadeIn1 {
+  0% {opacity:0%; transform: scale(0.5);}
+  20% {opacity: 20%; transform: scale(1);}
+  50% {opacity:  50%; transform: scale(1);}
+  70% {opacity:  70%; transform: scale(1);}
+  100% {opacity:  1; transform: scale(1);}
+}
+
+/* 選取英雄用 fade in*/
+@keyframes fadeIn2 {
+0% { transform: scale(1);}
+20% { transform: scale(1);}
+50% { transform: scale(1.22);}
+70% { transform: scale(1);}
+100% { transform: scale(1);}
+}
 
 /* 選取英雄用 fade out*/
 @keyframes fadeOut {
-  0% {opacity: 1;}
-  20% {opacity: 70%;}
-  50% {opacity:  50%;}
-  70% {opacity:  20%;}
-  100% {opacity:  0;}
-  
+0% {opacity: 1;transform: scale(1);}
+20% {opacity: 70%;transform: scale(1.02);}
+50% {opacity:  50%; transform: scale(1.02);}
+70% {opacity:  20%; transform: scale(0.98);}
+100% {opacity:  0; transform: scale(0.98);}
+
 }
 
 
@@ -132,6 +145,9 @@ body {
 
 
 
+
+
+
 img.heros:hover{ border:3px solid; color: rgb(255, 0, 0);}
 
 /*英雄輸入*/
@@ -139,12 +155,12 @@ input.hero{ display:block; position:fixed; top:1%; right:3%; width:100px; height
 
 /*  英雄pick圖片 基本大小位置*/
 img.pick {
-    display:block;
-    width: 131px;
-    height:165px;
-    position: fixed;
-    top:80.41%;
-    z-index: 2;
+  display:block;
+  width: 131px;
+  height:165.5px;
+  position: fixed;
+  top:80.416%;
+  z-index: 2;
     /* animation 參數設定 */
 /*    animation-name: MoveToRight;    動畫名稱，需與 keyframe 名稱對應*/
  /*   animation-duration: 1.5s;    動畫持續時間，單位為秒*/
@@ -174,15 +190,15 @@ img.zrb4{right:609px}
 
 
 /*  英雄ban圖片 左右高寬位置*/
-img.LB1{top:790.4px; left: 382px; width:70px; height: 70px; animation: fadeIn linear 3.4s;
-    animation-fill-mode: forwards;}
-img.LB2{top:790.4px; left: 458px; width:70px; height: 70px;}
-img.LB3{top:790.4px; left: 533px; width:70px; height: 70px;}
-img.LB4{top:790.4px; left: 609px; width:70px; height: 70px;}
-img.RB1{top:790.4px; right:382px; width:70px; height: 70px;}
-img.RB2{top:790.4px; right: 458px; width:70px; height: 70px;}
-img.RB3{top:790.4px; right: 533px; width:70px; height: 70px;}
-img.RB4{top:790.4px; right: 609px; width:70px; height: 70px;}
+img.LB1{top:790.43px; left: 381.2px; width:70px; height: 70px; animation: fadeIn linear 3.4s;
+  animation-fill-mode: forwards;}
+img.LB2{top:790.43px; left: 458px; width:70px; height: 70px;}
+img.LB3{top:790.43px; left: 533px; width:70px; height: 70px;}
+img.LB4{top:790.43px; left: 609px; width:70px; height: 70px;}
+img.RB1{top:790.43px; right:382px; width:70px; height: 70px;}
+img.RB2{top:790.43px; right: 458px; width:70px; height: 70px;}
+img.RB3{top:790.43px; right: 533px; width:70px; height: 70px;}
+img.RB4{top:790.43px; right: 609px; width:70px; height: 70px;}
 
 
 /*  英雄pick圖片 左右位置*/
@@ -284,8 +300,8 @@ p{
 h1.title1{font-size: 50px; top:71%; left: 42.5%; width: 300px; text-align: center;font-weight: bold;position:fixed;color:rgb(48, 51, 70);font-family:'oxxo1', serif;}
 
 
-h1.Lpoint{font-size: 150px; top:72%; left: 41%;text-align: center;font-weight: bold;position:fixed;color:rgb(48, 51, 70);  font-family:'oxxo', serif;}
-h1.Rpoint{font-size: 150px; top:72%; right: 41%;text-align: center;font-weight: bold;position:fixed;color:rgb(48, 51, 70);  font-family:'oxxo', serif;}
+img.Lpoint{font-size: 150px; top:84%; left: 41%;text-align: center;font-weight: bold;position:fixed;color:rgb(48, 51, 70);  font-family:'oxxo', serif;}
+img.Rpoint{font-size: 150px; top:84%; right: 41%;text-align: center;font-weight: bold;position:fixed;color:rgb(48, 51, 70);  font-family:'oxxo', serif;}
 /* h1.bo5{font-size: 30px; top:79.9%; left: 48.4%;text-align: center;font-weight: bold;position:fixed;color:rgb(176, 200, 70);} */
 
 
@@ -294,7 +310,7 @@ h1.Rpoint{font-size: 150px; top:72%; right: 41%;text-align: center;font-weight: 
   font-family: 'Open Sans', sans-serif;  }
 h1.teamR{font-size: 54px;z-index: 10;text-align: center;font-weight: bold;position:fixed;top:69.2%; color:rgb(247, 81, 148); left:87%;
   font-family: 'Open Sans', sans-serif; } */
-h1.gamepoints{font-size: 54px;z-index: 10;text-align: center;font-weight: bold;position:fixed;top:75.2%; color:rgb(255, 140, 35); left: 46.7%; font-weight: bold;text-align: center;
+img.gamepoints{font-size: 54px;z-index: 10;text-align: center;font-weight: bold;position:fixed;top:80.5%; color:rgb(255, 140, 35); left: 46.5%; font-weight: bold;text-align: center;
   font-family: 'oxxo', serif;  /*GOOGLE字體+ 最上方*/}
 
 img.BO5{ display:block; position:fixed; top:95%;left:47.8%; z-index: 10;}
@@ -488,8 +504,6 @@ img.heros118{left:calc(50px + 80px * 17);top:48%;}
 img.heros119{left:calc(50px + 80px * 18);top:48%;}
 img.heros120{left:calc(50px + 80px * 19);top:48%;}
 
-
-
 /* ban選率數據 */
 
 img.rate{display:block;
@@ -524,6 +538,7 @@ p.R1rate2{  right:7.2%; }
 p.R1rate3{  right:14.5%; }
 p.R1rate4{  right:21.8%; }
 p.R1rate5{  right:29.2%; }
+
 
 
 /* 100張測試*/

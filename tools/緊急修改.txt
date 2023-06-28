@@ -1,0 +1,11 @@
+localStorage.setItem("GAME1_L1","");
+localStorage.setItem("GAME1_L2","");
+localStorage.setItem("GAME1_L3","");
+localStorage.setItem("GAME1_L4","");
+localStorage.setItem("GAME1_L5","");
+
+localStorage.setItem("GAME1_R1","");
+localStorage.setItem("GAME1_R2","");
+localStorage.setItem("GAME1_R3","");
+localStorage.setItem("GAME1_R4","");
+localStorage.setItem("GAME1_R5","");

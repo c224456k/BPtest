@@ -1,0 +1,31 @@
+img{
+    display:block;
+    width: 100px;
+    height:100px;
+    position: fixed;
+    z-index: 2;
+}
+
+
+img.L1{left:18%;}
+img.L2{left:24%;}
+img.L3{left:30%;}
+img.L4{left:36%;}
+img.L5{left:42%;}
+
+img.R1{right:18%;}
+img.R2{right:24%;}
+img.R3{right:30%;}
+img.R4{right:36%;}
+img.R5{right:42%;}
+
+
+
+
+
+img.game1{ top:15%; }
+img.game2{ top:27%;}
+img.game3{ top:39%;}
+img.game4{ top:51%;}
+img.game5{ top:63%;}
+img.game6{ top:75%;}

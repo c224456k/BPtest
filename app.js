@@ -1,3 +1,5 @@
+
+
 // 鎖住滑鼠拖曳動作兩行
 
 document.addEventListener('mousedown', function(event) {
@@ -29,6 +31,9 @@ var gamepoints = 1;
 var bbb=1; //Pick快捷計數器
 var ddd=1; //ban快捷計數器
 var namechange1=2; //name改變計數器
+var lpoint = 0;
+var rpoint = 0;
+
 
 // 按鍵偵測
 document.body.addEventListener('keydown', function(e){  
@@ -51,24 +56,29 @@ document.body.addEventListener('keydown', function(e){
     if(bbb === 4 && ddd===5) {  document.getElementById('RB2').style.animation="fadeOut 0.5s 1 forwards" ; document.getElementById('ZL11').src='images/' + 'ppng1.png';clock(); 
     bbb++; return;}
   //pick
-    if(bbb === 5 && ddd===6) {  document.getElementById('ZL11').style.animation="fadeOut 0.5s 1 forwards" ; document.getElementById('ZR11').src='images/' + 'ppng1.png';
+    if(bbb === 5 && ddd===6) {  document.getElementById('ZL11').style.animation="fadeOut 0.5s 1 forwards" ; 
+    document.getElementById('L11').style.animation="fadeIn2 0.5s 1 forwards" ; 
+    document.getElementById('ZR11').src='images/' + 'ppng1.png';
     document.getElementById('ZR22').src='images/' + 'ppng1.png';clock(); 
     // heroRate('L11');
     bbb++; return;}
 
   if(bbb === 6 && ddd===8) {  document.getElementById('ZL22').src='images/' + 'ppng1.png'; document.getElementById('ZL33').src='images/' + 'ppng1.png';
   clock();  document.getElementById('ZR11').style.animation="fadeOut 0.5s 1 forwards" ; document.getElementById('ZR22').style.animation="fadeOut 0.5s 1 forwards" ; bbb++; 
+  document.getElementById('R11').style.animation="fadeIn2 0.5s 1 forwards" ; document.getElementById('R22').style.animation="fadeIn2 0.5s 1 forwards" ; 
   // setTimeout(() => {   document.getElementById('L111a').src='lu/L凱.png';   }, 2000);  //L凱z4蓋板
   // heroRate('R11');heroRate('R22');
   return;}
 
     if(bbb === 7 && ddd===10) {document.getElementById('ZR33').src='images/' + 'ppng1.png';
       clock(); document.getElementById('ZL22').style.animation="fadeOut 0.5s 1 forwards" ;document.getElementById('ZL33').style.animation="fadeOut 0.5s 1 forwards" ;bbb++; 
-  // setTimeout(() => {   document.getElementById('R111a').src='lu/R凱.png'; document.getElementById('R222a').src='lu/R射.png'; }, 2000);  //R凱野z4蓋板
+      document.getElementById('L22').style.animation="fadeIn2 0.5s 1 forwards" ; document.getElementById('L33').style.animation="fadeIn2 0.5s 1 forwards" ; 
+      // setTimeout(() => {   document.getElementById('R111a').src='lu/R凱.png'; document.getElementById('R222a').src='lu/R射.png'; }, 2000);  //R凱野z4蓋板
   // heroRate('L22');heroRate('L33');
   return;}
   if(bbb === 8 && ddd===11) {document.getElementById('RB3').src='images/' + 'bpng1.png';
   clock40();document.getElementById('ZR33').style.animation="fadeOut 0.5s 1 forwards" ; bbb++; 
+  document.getElementById('R33').style.animation="fadeIn2 0.5s 1 forwards" ;  
   // setTimeout(() => {   document.getElementById('L222a').src='lu/L野.png'; document.getElementById('L333a').src='lu/L中.png'; }, 2000);  //R凱野z4蓋板
   // heroRate('R33');
   return;}
@@ -89,21 +99,27 @@ document.body.addEventListener('keydown', function(e){
     if(bbb === 12 && ddd===15) {document.getElementById('LB4').style.animation="fadeOut 0.5s 1 forwards" ; document.getElementById('ZR44').src='images/' + 'ppng1.png';
   bbb++; clock();return;   }
 
-  if(bbb === 13 && ddd===16) {document.getElementById('ZR44').style.animation="fadeOut 0.5s 1 forwards" ; document.getElementById('ZL44').src='images/' + 'ppng1.png';
+  if(bbb === 13 && ddd===16) {document.getElementById('ZR44').style.animation="fadeOut 0.5s 1 forwards" ; 
+  document.getElementById('R44').style.animation="fadeIn2 0.5s 1 forwards" ;
+  document.getElementById('ZL44').src='images/' + 'ppng1.png';
   document.getElementById('ZL55').src='images/' + 'ppng1.png';bbb++; clock(); 
   // heroRate('R44');
   return;   }
   
   if(bbb === 14 && ddd===18) {document.getElementById('ZL44').style.animation="fadeOut 0.5s 1 forwards" ; document.getElementById('ZL55').style.animation="fadeOut 0.5s 1 forwards" ; 
+  document.getElementById('L44').style.animation="fadeIn2 0.5s 1 forwards" ; document.getElementById('L55').style.animation="fadeIn2 0.5s 1 forwards" ; 
   document.getElementById('ZR55').src='images/' + 'ppng1.png';bbb++; clock();
   // heroRate('L44');heroRate('L55');
   return;   }
 
-  if(bbb === 15 && ddd===19) {document.getElementById('ZR55').style.animation="fadeOut 0.5s 1 forwards" ; bbb++; clock(); 
+  if(bbb === 15 && ddd===19) {document.getElementById('ZR55').style.animation="fadeOut 0.5s 1 forwards" ;
+  document.getElementById('R55').style.animation="fadeIn2 0.5s 1 forwards" ; 
+  bbb++; clock(); 
   // heroRate('R55');
   return;   }
 
   }  
+
 
 
   if (keyid === 'ControlRight')   //解除防呆把前面資料清空
@@ -195,48 +211,60 @@ namechange1++;
 
 }
 
+
 if (keyid === 'Numpad7')   //左邊分數+1
-if(Number(document.getElementById('Lpoint').innerHTML)+1 === 4) {return}
+if(lpoint+1 === 4){return}
 else
-{  document.getElementById('Lpoint').innerHTML = Number(document.getElementById('Lpoint').innerHTML)+1;  }
+{  lpoint++; document.getElementById('Lpoint').src = 'number/old/' + lpoint + '.png';  
+gamepointcheck();}
 
 if (keyid === 'Numpad9')   //右邊分數+1
-if(Number(document.getElementById('Rpoint').innerHTML)+1 === 4) {return}
+if(rpoint+1 === 4) {return}
 else
-{  document.getElementById('Rpoint').innerHTML = Number(document.getElementById('Rpoint').innerHTML)+1;  }
+{  rpoint++; document.getElementById('Rpoint').src = 'number/old/' + rpoint + '.png';    
+gamepointcheck();}
 
 if (keyid === 'Numpad4')   //左邊分數-1
 
 {  
-  if(Number(document.getElementById('Lpoint').innerHTML)-1 <0) {return}
+  if(lpoint-1 <0) {return}
   else {
-  document.getElementById('Lpoint').innerHTML =  Number(document.getElementById('Lpoint').innerHTML)-1;  } }
+    lpoint--; document.getElementById('Lpoint').src = 'number/old/' + lpoint + '.png';  } 
+  gamepointcheck();}
 
 if (keyid === 'Numpad6')   //右邊分數-1
 
-if(Number(document.getElementById('Rpoint').innerHTML)-1 <0) {return}
+if(rpoint-1 <0) {return}
   else {
-{  document.getElementById('Rpoint').innerHTML = Number(document.getElementById('Rpoint').innerHTML)-1;  } }
+{  rpoint--; document.getElementById('Rpoint').src = 'number/old/' + rpoint + '.png';  } 
+gamepointcheck();}
 
 if (keyid === 'Numpad5')   //啟動倒數計時
 {clock40();}
 
 
+function gamepointcheck(){
+  gamepoints = lpoint + rpoint +1;
+  document.getElementById('gamepoints').src = 'number/G' + gamepoints + '.png';
 
-if (keyid === 'NumpadDivide')   // GAME1+1
-{ 
-  if (gamepoints === 7)
-  return;
-  gamepoints++;
-  document.getElementById('gamepoints').innerHTML = document.getElementById('gamepoints').innerHTML.slice(0, -1) + gamepoints;
 }
 
-if (keyid === 'NumpadMultiply')   //GAME1-1
-{ 
-  if (gamepoints === 1)
-  return;
-  gamepoints--;
-  document.getElementById('gamepoints').innerHTML = document.getElementById('gamepoints').innerHTML.slice(0, -1) + gamepoints;}
+
+
+// if (keyid === 'NumpadDivide')   // GAME1+1
+// { 
+//   if (gamepoints === 7)
+//   return;
+//   gamepoints++;
+//   document.getElementById('gamepoints').innerHTML = document.getElementById('gamepoints').innerHTML.slice(0, -1) + gamepoints;
+// }
+
+// if (keyid === 'NumpadMultiply')   //GAME1-1
+// { 
+//   if (gamepoints === 1)
+//   return;
+//   gamepoints--;
+//   document.getElementById('gamepoints').innerHTML = document.getElementById('gamepoints').innerHTML.slice(0, -1) + gamepoints;}
 
 
 });
@@ -265,10 +293,17 @@ if (keyid === 'NumpadMultiply')   //GAME1-1
 }
 
 
+
+
+//check 英雄三率
+
 function checkTFL1(){
   
-  if (localStorage.getItem('L1rateTF') === 'true'){
-  heroRate('L11');   clearInterval(rateL11); }
+  if (localStorage.getItem('L1rateTF') === 'true'){ 
+  heroRate('L11');  
+
+  
+  clearInterval(rateL11); }
 }
 function checkTFL2(){
 
@@ -357,7 +392,7 @@ function heroRate(a){
     rows = data.values;
     result = rows.find(row => row.includes(heroB)); // 查找第一个包含搜索值的行
     console.log(result[1]); //左邊數來第二個
-    document.getElementById(a+'rate1').innerHTML = result[4];
+    document.getElementById(a+'rate1').innerHTML = result[4];   
     document.getElementById(a+'rate2').innerHTML = result[6];
     if(result[8] === undefined) {result[8]='0.00%';}
     document.getElementById(a+'rate3').innerHTML = result[8];
@@ -369,6 +404,7 @@ function heroRate(a){
    document.getElementById(a+'rate1').style.animation='DowntoUp1 7s ease-in-out forwards'; 
    document.getElementById(a+'rate2').style.animation='DowntoUp2 7s ease-in-out forwards';
    document.getElementById(a+'rate3').style.animation='DowntoUp3 7s ease-in-out forwards';
+
 
   //}
 
@@ -385,6 +421,14 @@ function heroRate(a){
  
 
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -660,6 +704,7 @@ if (document.getElementById('game0').value === 'CLEARALL'){
 
 }
 
+
 if (document.getElementById('game0').value === 'saveg1andclearall'){
 
   const keysToKeep = ['GAME1_L1', 'GAME1_L2', 'GAME1_L3' , 'GAME1_L4' , 'GAME1_L5',
@@ -678,6 +723,11 @@ if (document.getElementById('game0').value === 'saveg1andclearall'){
   }
 
 }
+
+
+
+
+
 herolist1();
 
 }
@@ -701,16 +751,16 @@ function allgames1(L1,L2,L3,L4,L5,R1,R2,R3,R4,R5){
 //  localStorage.setItem( document.getElementById('game0').value+'R5' ,localStorage.getItem('game99_'+R5))  ;
 
 
- localStorage.setItem( document.getElementById('gamepoints').innerHTML +'_L1' ,localStorage.getItem('game100_'+L1))  ;
- localStorage.setItem( document.getElementById('gamepoints').innerHTML +'_L2' ,localStorage.getItem('game100_'+L2))  ;
- localStorage.setItem( document.getElementById('gamepoints').innerHTML +'_L3' ,localStorage.getItem('game100_'+L3))  ;
- localStorage.setItem( document.getElementById('gamepoints').innerHTML +'_L4' ,localStorage.getItem('game100_'+L4))  ;
- localStorage.setItem( document.getElementById('gamepoints').innerHTML +'_L5' ,localStorage.getItem('game100_'+L5))  ;
- localStorage.setItem( document.getElementById('gamepoints').innerHTML +'_R1' ,localStorage.getItem('game100_'+R1))  ;
- localStorage.setItem( document.getElementById('gamepoints').innerHTML +'_R2' ,localStorage.getItem('game100_'+R2))  ;
- localStorage.setItem( document.getElementById('gamepoints').innerHTML +'_R3' ,localStorage.getItem('game100_'+R3))  ;
- localStorage.setItem( document.getElementById('gamepoints').innerHTML +'_R4' ,localStorage.getItem('game100_'+R4))  ;
- localStorage.setItem( document.getElementById('gamepoints').innerHTML +'_R5' ,localStorage.getItem('game100_'+R5))  ;
+ localStorage.setItem( 'GAME' + gamepoints +'_L1' ,localStorage.getItem('game100_'+L1))  ;
+ localStorage.setItem( 'GAME' + gamepoints +'_L2' ,localStorage.getItem('game100_'+L2))  ;
+ localStorage.setItem( 'GAME' + gamepoints +'_L3' ,localStorage.getItem('game100_'+L3))  ;
+ localStorage.setItem( 'GAME' + gamepoints +'_L4' ,localStorage.getItem('game100_'+L4))  ;
+ localStorage.setItem( 'GAME' + gamepoints +'_L5' ,localStorage.getItem('game100_'+L5))  ;
+ localStorage.setItem( 'GAME' + gamepoints +'_R1' ,localStorage.getItem('game100_'+R1))  ;
+ localStorage.setItem( 'GAME' + gamepoints +'_R2' ,localStorage.getItem('game100_'+R2))  ;
+ localStorage.setItem( 'GAME' + gamepoints +'_R3' ,localStorage.getItem('game100_'+R3))  ;
+ localStorage.setItem( 'GAME' + gamepoints +'_R4' ,localStorage.getItem('game100_'+R4))  ;
+ localStorage.setItem( 'GAME' + gamepoints +'_R5' ,localStorage.getItem('game100_'+R5))  ;
 
 
 
